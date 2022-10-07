@@ -1,36 +1,44 @@
-import React from 'react'
-
-const ItemListContainer = () => {
-
-    const greeting = "Hola, yo soy ItemListContainer"
-
-    // **********************************************
-    // Se va a usar para levantar los cursos a vender
-    // const { listaDeCursos, setListaDeCursos } = useState();
-
-    // // renderizarProductos();
-    // getJSON();
+import React, { useEffect, useState } from 'react'
+import { useParams, NavLink } from 'react-router-dom'
 
 
-    // //Get JSON de cursos.json
-    // async function getJSON() {
-    //     //Definimos la URL
-    //     const URLJSON = "../json/cursos.json"
-    //     //Hacemos un Fetch a la URL
-    //     const resp = await fetch(URLJSON)
-    //     //Pasamos el JSON a array de objetos
-    //     const data = await resp.json()
-    //     //Lo copiamos a nuestra variable
-    //     setListaDeCursos(data);
-    //     //Renderizamos nuestros productos, en este caso, cursos
-    //     // renderizarProductos();
-    // }
-    // **********************************************
+const ItemListContainer = ({ products }) => {
+
+    // const greeting = "Hola, yo soy ItemListContainer"
+    const { id } = useParams();
+    const { categoria } = useParams();
+    const [state, setState] = useState([]);
+
+
+    useEffect(() => {
+        // const res = fetch("../../json/cursos.json");
+        const res = fetch("https://dummyjson.com/products")
+        res.then((res) => {
+            return res.json()
+        }).then((value) => {
+            setState(value.products);
+            console.log(value.products)
+        })
+    }, [])
+
 
     return (
         <>
-            <p>Mi propiedad greeting contiene el mensaje:</p>
-            <p>{greeting}</p>
+            <h2>Soy la lista de productos</h2>
+            <div>
+                {state.map((product) => {
+                    return (
+                        <>
+                            <img src={product.thumbnail} key={product.id}></img>
+                            <p><NavLink to={`/catalogo/${product.id}`}>{product.title}</NavLink></p>
+                        </>
+                    )
+                })}
+            </div>
+            {/* <p>{greeting}</p>
+            <h3>Mi parametro recibido contiene el mensaje:</h3>
+            <p>{message}</p>
+            console.log({state}) */}
         </>
     )
 }
