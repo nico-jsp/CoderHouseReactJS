@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link, NavLink } from "react-router-dom"
 import CarWidget from "./CarWidget";
 // import Header from ""
 
@@ -10,9 +11,6 @@ const NavBar = () => {
 
                 <nav className="navbar navbar-expand-lg navbar-dark navbar__custom">
                     <div className="container-fluid">
-                        {/* <a className="navbar-brand">
-                        index
-                    </a> */}
                         This is the header
                     </div>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -22,12 +20,13 @@ const NavBar = () => {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav ms-auto mb-2 mb-lg-0 " >
-                            <li className="nav-item"><a className="nav-link text-light" href="../index.html">HOME</a></li>
-                            <li className="nav-item"><a className="nav-link text-light" href="./app.html">APP</a></li>
-                            <li className="nav-item"><a className="nav-link text-light" href="./workshops.html">WORKSHOPS</a>
-                            </li>
-                            <li className="nav-item"><a className="nav-link text-light" href="./blog.html">BLOG</a></li>
-                            <li className="nav-item"><a className="nav-link text-light" href="./contact.html">CONTACT</a></li>
+                            <Link className="nav-link text-light" to={`/`}>HOME</Link>
+                            <NavLink className="nav-link text-light" to={`/catalogo/smartphones`}>CELULARES</NavLink>
+                            <NavLink className="nav-link text-light" to={`/catalogo/laptops`}>LAPTOPS</NavLink>
+                            <NavLink className="nav-link text-light" to={`/catalogo/fragrances`}>FRAGANCIAS</NavLink>
+                            <NavLink className="nav-link text-light" to={`/catalogo/skincare`}>CUIDADO DE LA PIEL</NavLink>
+                            <NavLink className="nav-link text-light" to={`/catalogo/groceries`}>GROCERIES</NavLink>
+                            <NavLink className="nav-link text-light" to={`/catalogo/home-decoration`}>DECORACION DEL HOGAR</NavLink>
                         </ul>
                     </div>
                     <CarWidget />
