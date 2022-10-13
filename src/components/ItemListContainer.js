@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams, NavLink } from 'react-router-dom'
 
 
-const ItemListContainer = ({ products }) => {
+const ItemListContainer = ({ products, greeting }) => {
 
     // const greeting = "Hola, yo soy ItemListContainer"
     const { id } = useParams();
@@ -57,6 +57,7 @@ const ItemListContainer = ({ products }) => {
 
     return (
         <>
+            {greeting}
             <h2 >Soy la lista de {title}</h2>
             <div className='producto__lista'>
                 {state.map((product) => {
