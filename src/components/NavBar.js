@@ -23,10 +23,10 @@ const NavBar = () => {
                             <Link className="nav-link text-light" to={`/`}>HOME</Link>
                             <NavLink className="nav-link text-light" to={`/catalogo/smartphones`}>CELULARES</NavLink>
                             <NavLink className="nav-link text-light" to={`/catalogo/laptops`}>LAPTOPS</NavLink>
-                            <NavLink className="nav-link text-light" to={`/catalogo/fragrances`}>FRAGANCIAS</NavLink>
-                            <NavLink className="nav-link text-light" to={`/catalogo/skincare`}>CUIDADO DE LA PIEL</NavLink>
+                            <NavLink className="nav-link text-light" to={`/catalogo/accesories`}>ACCESORIOS</NavLink>
+                            {/* <NavLink className="nav-link text-light" to={`/catalogo/skincare`}>CUIDADO DE LA PIEL</NavLink>
                             <NavLink className="nav-link text-light" to={`/catalogo/groceries`}>GROCERIES</NavLink>
-                            <NavLink className="nav-link text-light" to={`/catalogo/home-decoration`}>DECORACION DEL HOGAR</NavLink>
+                            <NavLink className="nav-link text-light" to={`/catalogo/home-decoration`}>DECORACION DEL HOGAR</NavLink> */}
                         </ul>
                     </div>
                     <CarWidget />

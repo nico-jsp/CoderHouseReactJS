@@ -61,12 +61,17 @@ const ItemListContainer = ({ products, greeting }) => {
         // res.then((res) => {
         // return res.json()
         // }).then((value) => {
-        console.log(products[0])
+        // console.log(products[0].data())
+
+        // console.log(products)
+
         if (categoria === undefined) {
             setState(products);
             setTitle('productos')
+            // console.log(state.data() + "aqui imprimo los que traigo ")
+
         } else {
-            setState(products.filter(product => product.categoryid === categoria));
+            setState(products.filter(product => product.data().categoryid === categoria));
             setTitle(categoria);
         }// console.log(state.filter(product => product.category == categoria))
         // })
@@ -82,8 +87,8 @@ const ItemListContainer = ({ products, greeting }) => {
                 {state.map((product) => {
                     return (
                         <div className='producto__listado'>
-                            <img src={product.image} key={product.categoryid}></img>
-                            <p><NavLink to={`/producto/${product.title}`}>{product.title}</NavLink></p>
+                            <img src={product.data().image} key={product.data().categoryid}></img>
+                            <p><NavLink to={`/producto/${product.data().title}`}>{product.data().title}</NavLink></p>
                         </div>
                     )
                 })}

@@ -14,6 +14,7 @@ function App() {
   let hello = "Hello CoderGuy, yo soy el ListContainer";
   const [state, setState] = useState([]);
   let id;
+  let title;
   // const [productos, setProductos] = useState();
 
   useEffect(() => {
@@ -49,7 +50,7 @@ function App() {
           <Route exact path="/" element={<Home />} />
           <Route exact path="/catalogo" element={<ItemListContainer products={state} greeting={hello} />} />
           <Route exact path="/catalogo/:categoria" element={<ItemListContainer products={state} />} />
-          <Route exact path="/producto/:id" element={<ItemDetailContainer productos={state} id={id} />} />
+          <Route exact path="/producto/:title" element={<ItemDetailContainer productos={state} title={title} />} />
         </Routes>
 
       </BrowserRouter>
